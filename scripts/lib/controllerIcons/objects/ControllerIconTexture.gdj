@@ -1,15 +1,15 @@
 // THIS FILE IS GENERATED! DO NOT EDIT OR DELETE IT. EDIT OR DELETE THE ASSOCIATED SOURCE CODE FILE INSTEAD
 // Note: You can however freely move this file inside your godot project if you want. Keep in mind however, that if you rename the originating source code file, this file will be deleted and regenerated as a new file instead of being updated! Other modifications to the source file however, will result in this file being updated.
 
-registeredName = JvmControllerTextureRect
-fqName = lib.controllerIcons.JvmControllerTextureRect
-relativeSourcePath = src/main/kotlin/lib/controllerIcons/JvmControllerTextureRect.kt
-baseType = TextureRect
+registeredName = ControllerIconTexture
+fqName = lib.controllerIcons.objects.ControllerIconTexture
+relativeSourcePath = src/main/kotlin/lib/controllerIcons/objects/ControllerIconTexture.kt
+baseType = Texture2D
 supertypes = [
-    godot.api.TextureRect,
-	godot.api.Control,
-	godot.api.CanvasItem,
-	godot.api.Node,
+    godot.api.Texture2D,
+	godot.api.Texture,
+	godot.api.Resource,
+	godot.api.RefCounted,
 	godot.api.Object,
 	godot.core.KtObject,
 	godot.common.interop.NativeWrapper,
@@ -21,10 +21,17 @@ signals = [
 ]
 properties = [
     icon_path,
-	show_only,
+	show_mode,
+	force_controller_icon_style,
 	force_type,
-	max_width
+	force_device
 ]
 functions = [
-    _ready
+    _get_width,
+	_get_height,
+	_has_alpha,
+	_is_pixel_opaque,
+	_draw,
+	_draw_rect,
+	_draw_rect_region
 ]

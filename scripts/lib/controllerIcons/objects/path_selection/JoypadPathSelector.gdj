@@ -1,0 +1,51 @@
+// THIS FILE IS GENERATED! DO NOT EDIT OR DELETE IT. EDIT OR DELETE THE ASSOCIATED SOURCE CODE FILE INSTEAD
+// Note: You can however freely move this file inside your godot project if you want. Keep in mind however, that if you rename the originating source code file, this file will be deleted and regenerated as a new file instead of being updated! Other modifications to the source file however, will result in this file being updated.
+
+registeredName = JoypadPathSelector
+fqName = lib.controllerIcons.objects.path_selection.JoypadPathSelector
+relativeSourcePath = src/main/kotlin/lib/controllerIcons/objects/path_selection/JoypadPathSelector.kt
+baseType = Panel
+supertypes = [
+    lib.controllerIcons.objects.path_selection.SelectorPanel,
+	godot.api.Panel,
+	godot.api.Control,
+	godot.api.CanvasItem,
+	godot.api.Node,
+	godot.api.Object,
+	godot.core.KtObject,
+	godot.common.interop.NativeWrapper,
+	godot.common.interop.NativePointer,
+	kotlin.Any
+]
+signals = [
+    done
+]
+properties = [
+    
+]
+functions = [
+    _ready,
+	_input,
+	on_button_pressed,
+	_on_l_stick_pressed,
+	_on_l_stick_click_pressed,
+	_on_r_stick_pressed,
+	_on_r_stick_click_pressed,
+	_on_lb_pressed,
+	_on_lt_pressed,
+	_on_rb_pressed,
+	_on_rt_pressed,
+	_on_a_pressed,
+	_on_b_pressed,
+	_on_x_pressed,
+	_on_y_pressed,
+	_on_select_pressed,
+	_on_start_pressed,
+	_on_home_pressed,
+	_on_share_pressed,
+	_on_dpad_pressed,
+	_on_dpad_down_pressed,
+	_on_dpad_right_pressed,
+	_on_dpad_left_pressed,
+	_on_dpad_up_pressed
+]

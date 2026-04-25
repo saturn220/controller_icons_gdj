@@ -1,13 +1,16 @@
 // THIS FILE IS GENERATED! DO NOT EDIT OR DELETE IT. EDIT OR DELETE THE ASSOCIATED SOURCE CODE FILE INSTEAD
 // Note: You can however freely move this file inside your godot project if you want. Keep in mind however, that if you rename the originating source code file, this file will be deleted and regenerated as a new file instead of being updated! Other modifications to the source file however, will result in this file being updated.
 
-registeredName = JvmControllerIconTexture
-fqName = lib.controllerIcons.JvmControllerIconTexture
-relativeSourcePath = src/main/kotlin/lib/controllerIcons/JvmControllerIconTexture.kt
-baseType = Resource
+registeredName = ControllerIconPathSelector
+fqName = lib.controllerIcons.objects.ControllerIconPathSelector
+relativeSourcePath = src/main/kotlin/lib/controllerIcons/objects/ControllerIconPathSelector.kt
+baseType = PanelContainer
 supertypes = [
-    godot.api.Resource,
-	godot.api.RefCounted,
+    godot.api.PanelContainer,
+	godot.api.Container,
+	godot.api.Control,
+	godot.api.CanvasItem,
+	godot.api.Node,
 	godot.api.Object,
 	godot.core.KtObject,
 	godot.common.interop.NativeWrapper,
@@ -15,15 +18,12 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    
+    path_selected
 ]
 properties = [
-    icon_path,
-	show_mode,
-	force_type,
-	force_device,
-	force_controller_icon_style
+    
 ]
 functions = [
-    
+    _ready,
+	on_tab_container_tab_selected
 ]

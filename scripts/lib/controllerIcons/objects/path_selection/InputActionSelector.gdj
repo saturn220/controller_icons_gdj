@@ -1,13 +1,14 @@
 // THIS FILE IS GENERATED! DO NOT EDIT OR DELETE IT. EDIT OR DELETE THE ASSOCIATED SOURCE CODE FILE INSTEAD
 // Note: You can however freely move this file inside your godot project if you want. Keep in mind however, that if you rename the originating source code file, this file will be deleted and regenerated as a new file instead of being updated! Other modifications to the source file however, will result in this file being updated.
 
-registeredName = JvmControllerSprite2D
-fqName = lib.controllerIcons.JvmControllerSprite2D
-relativeSourcePath = src/main/kotlin/lib/controllerIcons/JvmControllerSprite2D.kt
-baseType = Sprite2D
+registeredName = InputActionSelector
+fqName = lib.controllerIcons.objects.path_selection.InputActionSelector
+relativeSourcePath = src/main/kotlin/lib/controllerIcons/objects/path_selection/InputActionSelector.kt
+baseType = Panel
 supertypes = [
-    godot.api.Sprite2D,
-	godot.api.Node2D,
+    lib.controllerIcons.objects.path_selection.SelectorPanel,
+	godot.api.Panel,
+	godot.api.Control,
 	godot.api.CanvasItem,
 	godot.api.Node,
 	godot.api.Object,
@@ -17,13 +18,14 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    
+    done
 ]
 properties = [
-    icon_path,
-	show_only,
-	force_type
+    
 ]
 functions = [
-    _ready
+    _ready,
+	on_built_in_action_button_toggled,
+	on_tree_item_activated,
+	on_name_filter_text_changed
 ]
