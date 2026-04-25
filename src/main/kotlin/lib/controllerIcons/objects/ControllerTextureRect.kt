@@ -6,7 +6,7 @@ import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
 import godot.api.TextureRect
 import godot.core.Vector2
-import lib.controllerIcons.JvmControllerIcons
+import lib.controllerIcons.ControllerIcons
 
 @RegisterClass
 class ControllerTextureRect : TextureRect() {
@@ -43,7 +43,7 @@ class ControllerTextureRect : TextureRect() {
             applyMaxWidth()
         }
 
-    private var connectedIcons: JvmControllerIcons? = null
+    private var connectedIcons: ControllerIcons? = null
 
     @RegisterFunction
     override fun _ready() {
@@ -52,22 +52,22 @@ class ControllerTextureRect : TextureRect() {
     }
 
     fun GetTTSString(): String {
-        val icons = JvmControllerIcons.instance ?: return ""
+        val icons = ControllerIcons.instance ?: return ""
         val inputType = when (force_type) {
-            1 -> JvmControllerIcons.InputType.KEYBOARD_MOUSE
-            2 -> JvmControllerIcons.InputType.CONTROLLER
+            1 -> ControllerIcons.InputType.KEYBOARD_MOUSE
+            2 -> ControllerIcons.InputType.CONTROLLER
             else -> icons.lastInputType
         }
         return icons.parsePathToTts(path, inputType, icons.lastController)
     }
 
     private fun refreshTexture() {
-        val icons = JvmControllerIcons.instance ?: return
+        val icons = ControllerIcons.instance ?: return
         ensureSignalConnection(icons)
 
         val show = when (show_only) {
-            1 -> icons.lastInputType == JvmControllerIcons.InputType.KEYBOARD_MOUSE
-            2 -> icons.lastInputType == JvmControllerIcons.InputType.CONTROLLER
+            1 -> icons.lastInputType == ControllerIcons.InputType.KEYBOARD_MOUSE
+            2 -> icons.lastInputType == ControllerIcons.InputType.CONTROLLER
             else -> true
         }
         if (!show) {
@@ -79,8 +79,8 @@ class ControllerTextureRect : TextureRect() {
 
         visible = true
         val inputType = when (force_type) {
-            1 -> JvmControllerIcons.InputType.KEYBOARD_MOUSE
-            2 -> JvmControllerIcons.InputType.CONTROLLER
+            1 -> ControllerIcons.InputType.KEYBOARD_MOUSE
+            2 -> ControllerIcons.InputType.CONTROLLER
             else -> icons.lastInputType
         }
         texture = icons.parsePath(path, inputType, icons.lastController)
@@ -103,7 +103,7 @@ class ControllerTextureRect : TextureRect() {
         customMinimumSize = Vector2(max_width.toDouble(), h)
     }
 
-    private fun ensureSignalConnection(icons: JvmControllerIcons) {
+    private fun ensureSignalConnection(icons: ControllerIcons) {
         if (connectedIcons === icons) return
         connectedIcons?.input_type_changed?.disconnect(this, ControllerTextureRect::OnInputTypeChanged)
         icons.input_type_changed.connect(this, ControllerTextureRect::OnInputTypeChanged)

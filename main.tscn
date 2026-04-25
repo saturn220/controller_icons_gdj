@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://bc08dhoyyn3kv"]
+[gd_scene load_steps=6 format=3 uid="uid://bc08dhoyyn3kv"]
 
 [ext_resource type="Script" uid="uid://dpmo60385ts3o" path="res://scripts/godot/PrintText.gdj" id="1_s70mg"]
 [ext_resource type="Script" uid="uid://daghftlocwaa" path="res://scripts/godot/PrintTextJava.gdj" id="2_dbuvn"]
 [ext_resource type="Script" uid="uid://b147jobve7cc7" path="res://src/main/kotlin/godot/PrintText.kt" id="3_0c1e5"]
 [ext_resource type="Script" uid="uid://b3hyil0fubcso" path="res://src/main/java/godot/PrintTextJava.java" id="4_5vg1y"]
+
+[sub_resource type="ControllerIconTexture" id="ControllerIconTexture_7mycd"]
+icon_path = "ui_accept"
+show_mode = 0
+force_controller_icon_style = 0
+force_type = 0
+force_device = 16
 
 [node name="Root" type="GridContainer"]
 anchors_preset = 15
@@ -47,3 +54,4 @@ script = ExtResource("4_5vg1y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(544, 317)
+texture = SubResource("ControllerIconTexture_7mycd")

@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-JvmControllerIcons="*res://scripts/lib/controllerIcons/JvmControllerIcons.gdj"
+ControllerIcons="*res://scripts/lib/controllerIcons/ControllerIcons.gdj"
 
 [input]
 

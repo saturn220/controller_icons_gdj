@@ -4,14 +4,13 @@ import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
-import godot.api.InputEvent
 import godot.api.Texture2D
 import godot.core.Color
 import godot.core.Rect2
 import godot.core.RID
 import godot.core.Vector2
-import lib.controllerIcons.JvmControllerIcons
-import lib.controllerIcons.JvmControllerSettings
+import lib.controllerIcons.ControllerIcons
+import lib.controllerIcons.ControllerSettings
 
 @RegisterClass
 class ControllerIconTexture : Texture2D() {
@@ -66,7 +65,7 @@ class ControllerIconTexture : Texture2D() {
 
     @Export
     @RegisterProperty
-    var force_controller_icon_style: Int = JvmControllerSettings.Devices.NONE.ordinal
+    var force_controller_icon_style: Int = ControllerSettings.Devices.NONE.ordinal
         set(value) {
             field = value
             loadTexturePath()
@@ -89,40 +88,40 @@ class ControllerIconTexture : Texture2D() {
         }
 
     private var texture: Texture2D? = null
-    private var connectedIcons: JvmControllerIcons? = null
+    private var connectedIcons: ControllerIcons? = null
 
     fun GetTTSString(): String {
-        val icons = JvmControllerIcons.instance ?: return ""
+        val icons = ControllerIcons.instance ?: return ""
         return icons.parsePathToTts(iconPath, resolveInputType(icons), resolveController(icons))
     }
 
-    private fun canBeShown(icons: JvmControllerIcons): Boolean {
+    private fun canBeShown(icons: ControllerIcons): Boolean {
         return when (show_mode) {
-            EShowMode.KEYBOARD_MOUSE.ordinal -> icons.lastInputType == JvmControllerIcons.InputType.KEYBOARD_MOUSE
-            EShowMode.CONTROLLER.ordinal -> icons.lastInputType == JvmControllerIcons.InputType.CONTROLLER
+            EShowMode.KEYBOARD_MOUSE.ordinal -> icons.lastInputType == ControllerIcons.InputType.KEYBOARD_MOUSE
+            EShowMode.CONTROLLER.ordinal -> icons.lastInputType == ControllerIcons.InputType.CONTROLLER
             else -> true
         }
     }
 
-    private fun resolveInputType(icons: JvmControllerIcons): JvmControllerIcons.InputType {
+    private fun resolveInputType(icons: ControllerIcons): ControllerIcons.InputType {
         return when (force_type) {
-            EInputType.KEYBOARD_MOUSE.ordinal -> JvmControllerIcons.InputType.KEYBOARD_MOUSE
-            EInputType.CONTROLLER.ordinal -> JvmControllerIcons.InputType.CONTROLLER
+            EInputType.KEYBOARD_MOUSE.ordinal -> ControllerIcons.InputType.KEYBOARD_MOUSE
+            EInputType.CONTROLLER.ordinal -> ControllerIcons.InputType.CONTROLLER
             else -> icons.lastInputType
         }
     }
 
-    private fun resolveController(icons: JvmControllerIcons): Int {
+    private fun resolveController(icons: ControllerIcons): Int {
         return if (force_device == EForceDevice.ANY.ordinal) icons.lastController else force_device
     }
 
-    private fun resolveStyle(): JvmControllerSettings.Devices {
-        val values = JvmControllerSettings.Devices.entries
-        return values.getOrElse(force_controller_icon_style) { JvmControllerSettings.Devices.NONE }
+    private fun resolveStyle(): ControllerSettings.Devices {
+        val values = ControllerSettings.Devices.entries
+        return values.getOrElse(force_controller_icon_style) { ControllerSettings.Devices.NONE }
     }
 
     private fun loadTexturePath() {
-        val icons = JvmControllerIcons.instance ?: return
+        val icons = ControllerIcons.instance ?: return
         ensureSignalConnection(icons)
 
         texture = if (!canBeShown(icons)) {
@@ -134,7 +133,7 @@ class ControllerIconTexture : Texture2D() {
         emitChanged()
     }
 
-    private fun ensureSignalConnection(icons: JvmControllerIcons) {
+    private fun ensureSignalConnection(icons: ControllerIcons) {
         if (connectedIcons === icons) return
         connectedIcons?.input_type_changed?.disconnect(this, ControllerIconTexture::OnInputTypeChanged)
         icons.input_type_changed.connect(this, ControllerIconTexture::OnInputTypeChanged)

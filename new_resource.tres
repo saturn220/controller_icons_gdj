@@ -1,0 +1,8 @@
+[gd_resource type="ControllerIconTexture" format=3 uid="uid://cxtx2dutbkhea"]
+
+[resource]
+icon_path = "ui_accept"
+show_mode = 0
+force_controller_icon_style = 0
+force_type = 0
+force_device = 16
