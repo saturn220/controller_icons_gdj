@@ -103,8 +103,9 @@ class JvmControllerSprite3D : Sprite3D() {
     }
 
     @Suppress("UNUSED_PARAMETER")
-    private fun onInputTypeChanged(inputType: JvmControllerIcons.InputType, controller: Int) {
+    private fun onInputTypeChanged(inputType: Int, controller: Int) {
         refreshIcon()
     }
 }
+
 

@@ -53,7 +53,7 @@ class JvmControllerIcons : Node() {
     private val cachedIcons = mutableMapOf<String, Texture2D>()
 
     @RegisterSignal(parameters = ["input_type", "controller"])
-    val input_type_changed by signal2<InputType, Int>()
+    val input_type_changed by signal2<Int, Int>()
 
     private val mapper = JvmControllerMapper()
     private val settings = JvmControllerSettings()
@@ -249,7 +249,7 @@ class JvmControllerIcons : Node() {
     }
 
     private fun emitInputTypeChanged() {
-        input_type_changed.emit(lastInputType, lastController)
+        input_type_changed.emit(lastInputType.ordinal, lastController)
     }
 
     private fun testMouseVelocity(relativeVec: Vector2): Boolean {
@@ -496,6 +496,7 @@ class JvmControllerIcons : Node() {
         }
     }
 }
+
 
 
 
